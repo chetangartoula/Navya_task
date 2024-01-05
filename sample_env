@@ -3,12 +3,12 @@ DATABASE_NAME="navya_db"
 # POSTGRES_HOST_AUTH_METHOD="trust"
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
-POSTGRES_HOST=localhost
+POSTGRES_HOST=db
 POSTGRES_PORT=5432
 
 
-CELERY_BROKER_URL = "redis://localhost:6379/0"
-CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+CELERY_BROKER_URL = "redis://redis_db:6379/0"
+CELERY_RESULT_BACKEND = "redis://redis_db:6379/0"
 
-
+SECRET_KEY = "django-insecure-8lm=le_m#qx_c2@hp*%vw%#q1c1-2sh13z01t25$53+7yf1h%%"
 ENVIRONMENT="production"
