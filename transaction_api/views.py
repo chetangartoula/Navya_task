@@ -17,9 +17,7 @@ from django.conf import settings
 
 def packages_list(request):
     installed_packages = pkg_resources.working_set
-    installed_packages_list = sorted(
-        ["%s==%s" % (i.key, i.version) for i in installed_packages]
-    )
+    installed_packages_list = sorted(["%s==%s" % (i.key, i.version) for i in installed_packages])
     html_output = "<h1>All Installed packages </h1><br>"
 
     for package in installed_packages_list:
