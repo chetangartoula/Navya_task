@@ -1,0 +1,40 @@
+version: '3'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis_db
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+    # extra_hosts:
+    #   # enable if you are using the connected to the local postgres database as per your ip
+    #   - "host.docker.internal:172.17.0.1"
+
+  db:
+    image: postgres:alpine
+    env_file: .env
+    # ports:
+    #   - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql3data
+    environment:
+      - .env
+  
+  redis_db:
+    image: redis:alpine
+    # ports:
+    #   - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+
+volumes:
+  postgres-data:
+  redis-data:
