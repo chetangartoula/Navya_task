@@ -11,6 +11,7 @@ then
     echo "PostgreSQL started"
 fi
 
+python manage.py migrate
 celery -A navya_project worker --loglevel=info &
 celery -A navya_project beat --loglevel=info &
 echo "================================ Server is starting now  =================================="
