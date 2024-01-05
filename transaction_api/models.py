@@ -14,7 +14,9 @@ class BaseModel(models.Model):
 
 class UserInfoDetails(BaseModel):
     name = models.CharField(max_length=200)
-    phone = models.CharField(max_length=15, unique=True, validators=[phone_validation()])
+    phone = models.CharField(
+        max_length=15, unique=True, validators=[phone_validation()]
+    )
     email = models.EmailField(unique=False)
 
     def __str__(self) -> CharField:
