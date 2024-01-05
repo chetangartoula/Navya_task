@@ -8,7 +8,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Install system dependencies
-RUN apt-get update && cat apt_requirements.txt | xargs apt -y --no-install-recommends install \ 
+RUN apt-get update && cat apt_requirements.txt | xargs apt -y --no-install-recommends install \
     && rm -rf /var/lib/apt/lists/* \
     && apt autoremove \
     && apt autoclean

@@ -26,7 +26,7 @@ services:
       - postgres-data:/var/lib/postgresql3data
     environment:
       - .env
-  
+
   redis_db:
     image: redis:alpine
     # ports:
