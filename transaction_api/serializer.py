@@ -16,14 +16,10 @@ class UserInfoDetailsSerializer(serializers.ModelSerializer):
 
 
 class TransactionSerializer(serializers.ModelSerializer):
-    amount = serializers.DecimalField(
-        allow_null=False, decimal_places=2, max_digits=100
-    )
+    amount = serializers.DecimalField(allow_null=False, decimal_places=2, max_digits=100)
     transaction_date = serializers.DateTimeField(allow_null=False)
     transaction_id = serializers.CharField(read_only=True)
-    email = serializers.EmailField(
-        source="user_info.email", allow_blank=False, allow_null=False
-    )
+    email = serializers.EmailField(source="user_info.email", allow_blank=False, allow_null=False)
     phone = serializers.CharField(
         allow_null=False, source="user_info.phone", validators=[phone_validation()]
     )
@@ -46,9 +42,7 @@ class TransactionSerializer(serializers.ModelSerializer):
         email = user_data.get("email", None)
         phone = user_data.get("phone", None)
         name = validated_data.pop("name", None)
-        user_info = UserInfoDetails.objects.filter(
-            Q(email=email) and Q(phone=phone)
-        ).first()
+        user_info = UserInfoDetails.objects.filter(Q(email=email) and Q(phone=phone)).first()
         if user_info:
             raise serializers.ValidationError(
                 {
@@ -74,9 +68,7 @@ class TransactionSerializer(serializers.ModelSerializer):
         instance.transaction_date = validated_data.get(
             "transaction_date", instance.transaction_date
         )
-        instance.transaction_name = validated_data.get(
-            "name", instance.transaction_name
-        )
+        instance.transaction_name = validated_data.get("name", instance.transaction_name)
         if user_info_data:
             user_info = instance.user_info
             user_info.__dict__.update(user_info_data)
