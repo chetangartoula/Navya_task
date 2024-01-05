@@ -14,7 +14,9 @@ class BaseModel(models.Model):
 
 class UserInfoDetails(BaseModel):
     name = models.CharField(max_length=200)
-    phone = models.CharField(max_length=15, unique=True, validators=[phone_validation()])
+    phone = models.CharField(
+        max_length=15, unique=True, validators=[phone_validation()]
+    )
     email = models.EmailField(unique=False)
 
     def __str__(self) -> CharField:
@@ -22,7 +24,9 @@ class UserInfoDetails(BaseModel):
 
 
 class Transaction(BaseModel):
-    transaction_name = models.CharField(max_length=155, blank=False, null=False, verbose_name="name", default="")
+    transaction_name = models.CharField(
+        max_length=155, blank=False, null=False, verbose_name="name", default=""
+    )
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     transaction_date = models.DateTimeField(verbose_name="Transaction date")
     user_info = models.ForeignKey(

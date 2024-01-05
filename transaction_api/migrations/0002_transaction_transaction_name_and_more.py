@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('transaction_api', '0001_initial'),
+        ("transaction_api", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='transaction',
-            name='transaction_name',
-            field=models.CharField(default='', max_length=155, verbose_name='name'),
+            model_name="transaction",
+            name="transaction_name",
+            field=models.CharField(default="", max_length=155, verbose_name="name"),
         ),
         migrations.AlterField(
-            model_name='transaction',
-            name='transaction_id',
-            field=models.CharField(default='TXNID9657', max_length=255, unique=True),
+            model_name="transaction",
+            name="transaction_id",
+            field=models.CharField(default="TXNID9657", max_length=255, unique=True),
         ),
     ]

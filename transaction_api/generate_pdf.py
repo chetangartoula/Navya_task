@@ -6,7 +6,7 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Image, Spac
 from reportlab.lib import colors
 
 
-def generate_transaction_pdf(filename, table_list: list,header=None):
+def generate_transaction_pdf(filename, table_list: list, header=None):
     logo_path = os.path.join(settings.BASE_DIR, "static/") + "Djago HUB.png"
     logo = Image(logo_path, width=100, height=50)
     path = os.path.join(settings.BASE_DIR, "transaction_files")

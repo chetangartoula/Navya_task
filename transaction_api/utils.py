@@ -10,9 +10,7 @@ def secret_code():
 
 
 def secret_id(num):
-    code = "TXNID" + "".join(
-        random.choice(secret_code()) for _ in range(num)
-    )
+    code = "TXNID" + "".join(random.choice(secret_code()) for _ in range(num))
     return code
 
 
