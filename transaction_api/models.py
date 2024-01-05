@@ -22,7 +22,9 @@ class UserInfoDetails(BaseModel):
 
 
 class Transaction(BaseModel):
-    transaction_name = models.CharField(max_length=155, blank=False, null=False, verbose_name="name", default="")
+    transaction_name = models.CharField(
+        max_length=155, blank=False, null=False, verbose_name="name", default=""
+    )
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     transaction_date = models.DateTimeField(verbose_name="Transaction date")
     user_info = models.ForeignKey(
