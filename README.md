@@ -71,3 +71,5 @@ After completing the setup, you can run the following commands:
 For Docker installation, ensure that all environment variables are set as per Docker requirements. Then run the following command:
 
 ```docker-compose up ```
+### Note:
+  The Postman APIs are located in the file named 'Navya Task.postman_collection.json'.
